@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23101219'/%3E%3Cpath d='M3 12c2-6 3-6 5-2s3 4 5-2' fill='none' stroke='%2300E5FF' stroke-width='1.4'/%3E%3C/svg%3E" />
+    <title>Bistable cell array, conceptual elastic bistability</title>
+    <meta
+      name="description"
+      content="A 34-second reduced-order explainer of curved elastic cells that switch under compression, retain a higher-energy state, and dissipate energy through illustrative damping."
+    />
+    <script type="module" crossorigin src="./assets/index-C_1yDKLA.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-gKBfihTl.css">
+  </head>
+  <body>
+    <a class="skip" href="#transport">Skip to playback controls</a>
+    <div id="app">
+      <header>
+        <p class="eyebrow">Conceptual elastic bistability</p>
+        <h1>Bistable cell array</h1>
+        <p id="evidence">Illustrative reduced-order model. Not experimental validation.</p>
+        <p id="shot-status" aria-live="polite">Shot 1. Initial array.</p>
+      </header>
+
+      <section id="stage" aria-label="Specimen view">
+        <canvas id="gl"></canvas>
+        <canvas id="fallback" hidden></canvas>
+        <svg id="callouts" aria-hidden="true"></svg>
+        <p id="axes">Y compression. X lateral. Z thickness.</p>
+        <ul id="callout-list"></ul>
+        <div id="inset-frame" hidden>
+          <div class="inset-copy">
+            <p id="inset-title">Separate reset demonstration</p>
+            <p id="inset-note">External trigger required.</p>
+          </div>
+          <div id="inset-view"></div>
+        </div>
+        <p id="gl-note" hidden></p>
+      </section>
+
+      <aside id="left-panel" aria-label="Unloaded reference landscape">
+        <canvas id="potential"></canvas>
+        <ul class="legend">
+          <li><span class="mark square"></span> State A: lower stored elastic energy.</li>
+          <li><span class="mark cross"></span> Barrier to switching.</li>
+          <li><span class="mark diamond"></span> State B: higher stored elastic energy.</li>
+        </ul>
+        <p class="note">The horizontal axis is the deformation coordinate, not time. The vertical axis is elastic potential, not force. This unloaded curve is a reference. Crossing its maximum is not the switching threshold of the compressed array.</p>
+      </aside>
+
+      <aside id="right-panel" aria-label="Force and energy">
+        <h2>Illustrative model force-displacement</h2>
+        <canvas id="force"></canvas>
+        <p class="note">Positive compression shortens the specimen. Positive force is the compressive actuator reaction. The amber path is loading. The dashed path is unloading. It ends at the shortened zero-load state. That open path is not a closed reset cycle, and its area is not dissipated energy. The drawn curve is a short display average of the model samples. The numeric actuator force is the instantaneous value.</p>
+        <canvas id="energy"></canvas>
+        <p class="note">Model energy units, fixed scale. External work, elastic energy, kinetic energy, and illustrative material damping are separate. Cyan on the specimen marks State B. It does not encode an energy value.</p>
+        <p id="state-readout"></p>
+        <p id="phase-note"></p>
+      </aside>
+
+      <footer id="transport">
+        <div class="transport-row">
+          <button type="button" id="play" aria-label="Play">Play</button>
+          <button type="button" id="replay" aria-label="Replay from the start">Replay</button>
+          <span id="readout-time">00:00.0 / 00:34.0</span>
+          <label class="timeline-label" for="timeline">Timeline</label>
+          <input id="timeline" type="range" min="0" max="34" step="0.001" value="0" aria-valuemin="0" aria-valuemax="34" aria-valuenow="0" />
+          <button type="button" id="mute" aria-pressed="false" aria-label="Mute audio">Mute</button>
+          <button type="button" id="fullscreen" aria-label="Enter fullscreen">Fullscreen</button>
+        </div>
+        <div class="transport-row secondary">
+          <label>Music <input id="music" type="range" min="0" max="1" step="0.01" value="0.7" /></label>
+          <label>Effects <input id="effects" type="range" min="0" max="1" step="0.01" value="0.8" /></label>
+          <label class="check"><input id="reduced" type="checkbox" /> Reduce motion</label>
+          <div class="shots" role="group" aria-label="Jump to shot">
+            <button type="button" data-shot="0">1 Initial</button>
+            <button type="button" data-shot="5">2 Cell</button>
+            <button type="button" data-shot="10">3 Loading</button>
+            <button type="button" data-shot="17">4 Sequence</button>
+            <button type="button" data-shot="25">5 Retention</button>
+          </div>
+          <button type="button" id="about-open">About</button>
+        </div>
+      </footer>
+    </div>
+
+    <div id="loading" role="status">
+      <p id="loading-copy">Computing the reduced-order trajectory.</p>
+      <button type="button" id="enter" hidden>Play explainer</button>
+    </div>
+    <div id="error" hidden role="alert"></div>
+
+    <dialog id="about">
+      <h2>About this explainer</h2>
+      <p>This is a cinematic viewer of a four-row series array of conceptually bistable curved cells. One precomputed trajectory drives the geometry, the force chart, and the energy readouts.</p>
+      <ol>
+        <li>Product: a 34-second interactive explainer of elastic snap-through and retained configuration.</li>
+        <li>Audience: engineers and students inspecting the mechanism, not buyers of an impact product.</li>
+        <li>Distinction: unloading stops at the higher-energy zero-load state, and reset is a separate actuated cell.</li>
+        <li>Structure: five shots, a 3D specimen, an unloaded reference landscape, an open force path, and an inset.</li>
+        <li>Discovery: open the page directly. A public Pages URL is not claimed until a deployment is verified.</li>
+        <li>Engagement: play, pause, scrub, mute, and step through shots. Reduced motion keeps the camera on shot poses.</li>
+        <li>Conversion: none. The page does not collect leads or personal data.</li>
+        <li>Money: none on this page. It is a technical demonstration.</li>
+        <li>Launch: local build and preview. Remote publication waits for an approved repository target.</li>
+        <li>After launch: replace the reduced-order model only with a documented experiment or analysis. Do not relabel this run as validation.</li>
+      </ol>
+      <p id="check-summary"></p>
+      <p>Playback preferences are stored in this browser. The page does not send them anywhere.</p>
+      <button type="button" id="about-close">Close</button>
+    </dialog>
+  </body>
+</html>
