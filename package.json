@@ -1,0 +1,21 @@
+{
+  "name": "bistable-metamaterial-explainer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cinematic reduced-order explainer of conceptual elastic bistability in a curved-cell metamaterial array.",
+  "scripts": {
+    "dev": "vite",
+    "validate": "node --experimental-strip-types --no-warnings scripts/validate-model.ts",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173"
+  },
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.170.0",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.6"
+  }
+}
