@@ -8,3 +8,4 @@ netlify
 .env.*
 qa-*
 .playwright-mcp/
+agent-tools/
