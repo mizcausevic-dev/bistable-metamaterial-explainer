@@ -45,8 +45,10 @@ Regenerate the report rather than treating this README as a second source of rec
 
 ## Publication
 
-Vite `base` is `./`, so built assets resolve on a GitHub project site. The preview is the `gh-pages` branch, served from the repository root, with `.nojekyll` so the underscore paths in the Vite build are kept. That is GitHub Pages from a branch, not an Actions deploy.
+Vite `base` is `./`, so built assets resolve on a GitHub project site. Pages is served from the `gh-pages` branch at the repository root, with `.nojekyll` so the Vite asset paths are kept. That is GitHub Pages from a branch, not an Actions deploy.
 
-Intended repository, once the push is authenticated: `mizcausevic-dev/bistable-metamaterial-explainer`. The repository did not exist when this was checked. Intended preview, only after Pages reports a site: `https://mizcausevic-dev.github.io/bistable-metamaterial-explainer/`.
+Repository: https://github.com/mizcausevic-dev/bistable-metamaterial-explainer
 
-This file does not claim that the push or the preview has succeeded.
+Preview: https://mizcausevic-dev.github.io/bistable-metamaterial-explainer/
+
+The preview was fetched after the `gh-pages` deploy. The HTML, script, and stylesheet each returned HTTP 200.
